@@ -1,9 +1,9 @@
 package org.parasol.customerservice.finance.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
-public class OrderDto {
+public class OrderFinancialRecord {
 
     private int id;
 
@@ -13,7 +13,9 @@ public class OrderDto {
 
     private LocalDate shippedDate;
 
-    private List<LineItemDto> lineItems;
+    private String status;
+
+    private BigDecimal value;
 
     public int getId() {
         return id;
@@ -31,8 +33,12 @@ public class OrderDto {
         return shippedDate;
     }
 
-    public List<LineItemDto> getLineItems() {
-        return lineItems;
+    public String getStatus() {
+        return status;
+    }
+
+    public BigDecimal getValue() {
+        return value;
     }
 
     public static Builder builder() {
@@ -41,39 +47,44 @@ public class OrderDto {
 
     public static class Builder {
         
-        private final OrderDto orderDto;
+        private final OrderFinancialRecord orderFinancialRecord;
         
         public Builder() {
-            orderDto = new OrderDto();
+            orderFinancialRecord = new OrderFinancialRecord();
         }
 
         public Builder withId(int id) {
-            orderDto.id = id;
+            orderFinancialRecord.id = id;
             return this;
         }
 
         public Builder withCustomer(String customer) {
-            orderDto.customer = customer;
+            orderFinancialRecord.customer = customer;
             return this;
         }
 
         public Builder withOrderDate(LocalDate orderDate) {
-            orderDto.orderDate = orderDate;
+            orderFinancialRecord.orderDate = orderDate;
             return this;
         }
 
         public Builder withShippedDate(LocalDate shippedDate) {
-            orderDto.shippedDate = shippedDate;
+            orderFinancialRecord.shippedDate = shippedDate;
             return this;
         }
 
-        public Builder withLineItems(List<LineItemDto> lineItems) {
-            orderDto.lineItems = lineItems;
+        public Builder withStatus(String status) {
+            orderFinancialRecord.status = status;
             return this;
         }
 
-        public OrderDto build() {
-            return orderDto;
+        public Builder withValue(BigDecimal value) {
+            orderFinancialRecord.value = value;
+            return this;
+        }
+
+        public OrderFinancialRecord build() {
+            return orderFinancialRecord;
         }
     }
 }
