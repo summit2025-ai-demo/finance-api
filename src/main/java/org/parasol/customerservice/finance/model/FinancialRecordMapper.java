@@ -1,17 +1,16 @@
 package org.parasol.customerservice.finance.model;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.List;
 
-public class OrderFinancialRecordMapper {
+public class FinancialRecordMapper {
 
-    public static OrderFinancialRecord toDto(Order order) {
+    public static FinancialRecord toDto(Order order) {
         if (order == null) {
             return null;
         }
-        return OrderFinancialRecord.builder()
+        return FinancialRecord.builder()
                 .withId(order.id)
                 .withCustomer(order.customer)
                 .withOrderDate(order.orderDate)

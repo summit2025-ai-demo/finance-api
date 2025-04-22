@@ -3,7 +3,7 @@ package org.parasol.customerservice.finance.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class OrderFinancialRecord {
+public class FinancialRecord {
 
     private int id;
 
@@ -47,10 +47,10 @@ public class OrderFinancialRecord {
 
     public static class Builder {
         
-        private final OrderFinancialRecord orderFinancialRecord;
+        private final FinancialRecord orderFinancialRecord;
         
         public Builder() {
-            orderFinancialRecord = new OrderFinancialRecord();
+            orderFinancialRecord = new FinancialRecord();
         }
 
         public Builder withId(int id) {
@@ -83,7 +83,7 @@ public class OrderFinancialRecord {
             return this;
         }
 
-        public OrderFinancialRecord build() {
+        public FinancialRecord build() {
             return orderFinancialRecord;
         }
     }
